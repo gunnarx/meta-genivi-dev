@@ -21,9 +21,10 @@ do_install_append() {
     done
 }
 
-# Raspberry Pi workarounds
+# Support Raspberry Pi and other ARM boards
 
 COMPATIBLE_MACHINE_armv7ve = "(.*)"
+COMPATIBLE_MACHINE = "(.*)"
 
 # Apply same TUNE_FEATURES as in an armv7a build
 ARMFPABI_armv7ve = "${@bb.utils.contains('TUNE_FEATURES', 'callconvention-hard', 'arm_float_abi=hard', 'arm_float_abi=softfp', d)}"
